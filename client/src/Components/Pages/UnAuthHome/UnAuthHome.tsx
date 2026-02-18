@@ -41,7 +41,12 @@ function UnAuthHome() {
           Manage tasks, projects, and teams in one modern workspace built for
           developers.
         </p>
-        <BtnOne text="Get Started" isDisabled={false} link="/login" />
+        <BtnOne
+          text="Get Started"
+          isDisabled={false}
+          link="/login"
+          type="button"
+        />
         <img
           id="firstImg"
           src={firstImg}

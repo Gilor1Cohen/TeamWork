@@ -27,3 +27,23 @@
   transform: translateY(10px);
   transition: 100ms;
 }
+
+#BtnOne:disabled,
+#BtnOne[disabled] {
+  cursor: not-allowed;
+  opacity: 0.55;
+  background-color: #f3f3f3;
+  color: #777;
+  border-color: #ddd;
+  box-shadow: none;
+  transform: none;
+  letter-spacing: 1.5px;
+}
+
+#BtnOne:disabled:hover,
+#BtnOne[disabled]:hover {
+  background-color: #f3f3f3;
+  color: #777;
+  box-shadow: none;
+  letter-spacing: 1.5px;
+}
