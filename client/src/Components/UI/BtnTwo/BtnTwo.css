@@ -1,0 +1,49 @@
+#BtnTwo {
+  height: 3rem;
+  width: 200px;
+  border-radius: 4px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  font-size: 18px;
+  font-weight: 600;
+  letter-spacing: 0.2px;
+  background: #ffffff;
+  color: #1f2937;
+  border: 1px solid #d6e0ee;
+  box-shadow: 0 10px 22px rgba(16, 24, 40, 0.06);
+  cursor: pointer;
+  user-select: none;
+  transition:
+    transform 0.125s ease,
+    box-shadow 0.25s ease,
+    background-color 0.25s ease,
+    border-color 0.25s ease,
+    color 0.25s ease;
+}
+
+#BtnTwo:hover {
+  transform: translateY(-1px);
+  background: #f8fafc;
+  border-color: #c7d4e8;
+  box-shadow: 0 14px 28px rgba(16, 24, 40, 0.09);
+}
+
+#BtnTwo:active {
+  transform: translateY(0);
+  box-shadow: 0 8px 18px rgba(16, 24, 40, 0.07);
+}
+
+#BtnTwo:focus-visible {
+  outline: 0;
+  box-shadow:
+    0 0 0 4px rgba(59, 130, 246, 0.18),
+    0 10px 22px rgba(16, 24, 40, 0.06);
+}
+
+#BtnTwo img {
+  width: 4rem;
+  height: 3rem;
+  display: block;
+}
