@@ -58,9 +58,9 @@ function HomePage() {
       </div>
 
       <div className="data">
-        <BoxNums Title="Tasks" Data={data.Task} Link="/tasks" />
-        <BoxNums Title="Projects" Data={data.Projects} Link="/projects" />
-        <BoxNums Title="Teams" Data={data.Teams} Link="/teams" />
+        <BoxNums Title="Tasks" Data={data.Task} link="/tasks" />
+        <BoxNums Title="Projects" Data={data.Projects} link="/projects" />
+        <BoxNums Title="Teams" Data={data.Teams} link="/teams" />
       </div>
     </section>
   );

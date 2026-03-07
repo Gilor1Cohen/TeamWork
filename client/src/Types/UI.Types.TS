@@ -34,7 +34,7 @@ interface InputProps {
 interface BoxNumsProps {
   Title: string;
   Data: TaskData | ProjectsData | TeamsData;
-  Link: string;
+  link: string;
 }
 
 interface Team {
@@ -50,6 +50,15 @@ interface Project {
   Description: string;
   DueDate: string;
   Team: string;
+  Members: string[];
+}
+
+interface Task {
+  _id: string;
+  TaskTitle: string;
+  Description: string;
+  DueDate: string;
+  Project: string;
   Members: string[];
 }
 
@@ -83,6 +92,7 @@ export type {
   BoxNumsProps,
   Team,
   Project,
+  Task,
   AddFormProps,
   OptionInputProps,
   AddFormResponse,

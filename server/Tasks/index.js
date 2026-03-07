@@ -12,6 +12,7 @@ app.use(cookieParser());
 connectMongo();
 
 app.use("/addTask", require("./controllers-layer/addTask"));
+app.use("/tasksByUser", require("./controllers-layer/TasksByUser"));
 
 app
   .listen(3003, () => {

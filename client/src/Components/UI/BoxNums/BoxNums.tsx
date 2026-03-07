@@ -1,7 +1,8 @@
+import { Link } from "react-router-dom";
 import type { BoxNumsProps } from "../../../Types/UI.Types";
 import "./BoxNums.css";
 
-function BoxNums({ Title, Data, Link }: BoxNumsProps) {
+function BoxNums({ Title, Data, link }: BoxNumsProps) {
   return (
     <div className="BoxNums">
       <h1>{Title}</h1>
@@ -10,7 +11,7 @@ function BoxNums({ Title, Data, Link }: BoxNumsProps) {
       {"overdue" in Data && <p>Overdue: {Data.overdue}</p>}
       {"NewThisWeek" in Data && <p>New This Week: {Data.NewThisWeek}</p>}
       {"TotalMembers" in Data && <p>Total Members: {Data.TotalMembers}</p>}
-      <a href={Link}>view more</a>
+      <Link to={link}>view more</Link>
     </div>
   );
 }

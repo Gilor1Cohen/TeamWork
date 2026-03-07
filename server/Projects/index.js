@@ -11,8 +11,8 @@ app.use(cookieParser());
 
 connectMongo();
 
-app.use("/addProject", require("./controllers-layer/AddProject.js"));
-app.use("/projectsByUser", require("./controllers-layer/ProjectsByUser.js"));
+app.use("/addProject", require("./controllers-layer/AddProject"));
+app.use("/projectsByUser", require("./controllers-layer/ProjectsByUser"));
 
 app
   .listen(3002, () => {
