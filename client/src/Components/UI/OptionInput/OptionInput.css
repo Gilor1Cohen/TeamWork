@@ -1,0 +1,53 @@
+.option-input {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.option-input select {
+  width: 100%;
+  padding: 12px 14px;
+  font-size: 15px;
+  border-radius: 8px;
+  border: 1px solid #dadce0;
+  background: white;
+  color: #202124;
+  outline: none;
+  transition: all 0.18s ease;
+  cursor: pointer;
+}
+
+.option-input select:hover {
+  border-color: #c6c6c6;
+}
+
+.option-input select:focus {
+  border-color: #1a73e8;
+  box-shadow: 0 0 0 3px rgba(26, 115, 232, 0.15);
+}
+
+.option-input select option[value=""] {
+  color: #9aa0a6;
+}
+
+.Input-Error {
+  font-size: 13px;
+  color: #d93025;
+  margin: 2px 0 0 2px;
+  font-weight: 500;
+}
+
+.option-input select:invalid {
+  border-color: #d93025;
+}
+
+.option-input select {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+
+  background-image: url("data:image/svg+xml;utf8,<svg fill='%23666' height='20' viewBox='0 0 24 24' width='20' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/></svg>");
+  background-repeat: no-repeat;
+  background-position: right 10px center;
+}

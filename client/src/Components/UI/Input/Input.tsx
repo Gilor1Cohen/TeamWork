@@ -18,7 +18,6 @@ function Input({
       <input
         id={Name}
         type={Type}
-        name={Name}
         placeholder={Placeholder}
         {...Register(Name, Rules)}
       />

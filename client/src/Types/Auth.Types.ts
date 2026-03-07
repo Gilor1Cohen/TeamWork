@@ -1,15 +1,3 @@
-import type { UseFormRegister } from "react-hook-form";
-
-interface AuthFormInputs {
-  Register: UseFormRegister<AuthForm>;
-  Type: string;
-  Name: keyof AuthForm;
-  Placeholder: string;
-  Error?: string;
-  Label: string;
-  Rules: { required?: string };
-}
-
 interface AuthForm {
   FirstName?: string;
   LastName?: string;
@@ -38,7 +26,6 @@ interface AuthProviderProps {
 }
 
 export type {
-  AuthFormInputs,
   AuthForm,
   UserData,
   AuthResponse,

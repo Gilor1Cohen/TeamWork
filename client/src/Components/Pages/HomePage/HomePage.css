@@ -64,3 +64,75 @@
   align-items: center;
   justify-content: center;
 }
+
+@media (max-width: 1024px) {
+  #HomePage {
+    padding: 2rem 2rem;
+    gap: 1.2rem;
+  }
+
+  #homePageSummary {
+    padding: 1.4rem;
+  }
+
+  #HomePage-H {
+    font-size: 2rem;
+  }
+
+  #homePageTasksDueText {
+    font-size: 0.95rem;
+  }
+
+  #homePageLastUpdate p {
+    font-size: 0.95rem;
+  }
+
+  #QuickBtns {
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+
+  .data {
+    flex-wrap: wrap;
+  }
+}
+
+@media (max-width: 600px) {
+  #HomePage {
+    padding: 1.6rem 1.2rem;
+    gap: 1rem;
+  }
+
+  #homePageSummary {
+    padding: 1rem;
+    gap: 0.6rem;
+  }
+
+  #HomePage-H {
+    font-size: 1.6rem;
+  }
+
+  #homePageTasksDueText {
+    font-size: 0.9rem;
+  }
+
+  #homePageLastUpdate {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.4rem;
+  }
+
+  #homePageLastUpdate p {
+    font-size: 0.9rem;
+  }
+
+  #QuickBtns {
+    flex-direction: column;
+    gap: 0.8rem;
+  }
+
+  .data {
+    flex-direction: column;
+    gap: 0.8rem;
+  }
+}
