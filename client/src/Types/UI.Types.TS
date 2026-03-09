@@ -6,6 +6,8 @@ interface BtnOneProps {
   isDisabled: boolean;
   link?: string;
   type: "submit" | "button" | "reset" | undefined;
+  onClick?: () => void;
+  state?: Team;
 }
 
 interface BtnTwoProps {
@@ -37,11 +39,17 @@ interface BoxNumsProps {
   link: string;
 }
 
+interface Member {
+  Name: string;
+  _id: string;
+  Role: string;
+}
+
 interface Team {
   _id: string;
   TeamName: string;
   Description: string;
-  Members: string[];
+  Members: Member[];
 }
 
 interface Project {
@@ -49,8 +57,8 @@ interface Project {
   ProjectName: string;
   Description: string;
   DueDate: string;
-  Team: string;
-  Members: string[];
+  Team: { _id: string; Name: string };
+  Members: Member[];
 }
 
 interface Task {
@@ -58,30 +66,51 @@ interface Task {
   TaskTitle: string;
   Description: string;
   DueDate: string;
-  Project: string;
-  Members: string[];
+  Project: { _id: string; Name: string };
+  Members: Member[];
 }
 
 interface AddFormProps {
   Title: string;
   Description: string;
-  DueDate?: Date;
-  Project?: string;
-  Team?: string;
+  DueDate?: Date | string;
+  Project?:
+    | {
+        id: string;
+        name: string;
+      }
+    | string;
+
+  Team?:
+    | {
+        id: string;
+        name: string;
+      }
+    | string;
 }
 
 interface AddFormResponse {
   message: string;
 }
 
+type UserRole = "manager" | "worker";
+
 interface OptionInputProps {
   title: string;
-  options: Team[] | Project[];
+  options: Team[] | Project[] | UserRole[];
   error?: string;
   name: string;
   Register: UseFormRegister<any>;
   rules?: RegisterOptions;
   loading?: boolean;
+}
+
+interface DataPageBoxProps {
+  data: Project | Team | Task;
+}
+
+interface MembersTableProps {
+  Members: Member[];
 }
 
 export type {
@@ -96,4 +125,8 @@ export type {
   AddFormProps,
   OptionInputProps,
   AddFormResponse,
+  DataPageBoxProps,
+  Member,
+  MembersTableProps,
+  UserRole,
 };

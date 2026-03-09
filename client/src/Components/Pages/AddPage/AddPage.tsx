@@ -117,6 +117,14 @@ function AddPage() {
           break;
       }
 
+      if (data.Project && typeof data.Project === "string") {
+        data.Project = JSON.parse(data.Project);
+      }
+
+      if (data.Team && typeof data.Team === "string") {
+        data.Team = JSON.parse(data.Team);
+      }
+
       const response = await axios.post<AddFormResponse>(endpoint, data, {
         withCredentials: true,
       });

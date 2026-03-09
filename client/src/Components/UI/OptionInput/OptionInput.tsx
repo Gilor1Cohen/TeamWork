@@ -1,4 +1,9 @@
-import type { OptionInputProps, Project, Team } from "../../../Types/UI.Types";
+import type {
+  OptionInputProps,
+  Project,
+  Team,
+  UserRole,
+} from "../../../Types/UI.Types";
 import "./OptionInput.css";
 
 function OptionInput({
@@ -17,11 +22,28 @@ function OptionInput({
           {loading ? "Loading..." : title}
         </option>
 
-        {options.map((option: Team | Project) => (
-          <option key={option._id} value={option._id}>
-            {"TeamName" in option ? option.TeamName : option.ProjectName}
-          </option>
-        ))}
+        {options.map((option: Team | Project | UserRole) => {
+          if (typeof option === "string") {
+            return (
+              <option key={option} value={option}>
+                {option}
+              </option>
+            );
+          }
+
+          return (
+            <option
+              key={option._id}
+              value={JSON.stringify({
+                id: option._id,
+                name:
+                  "TeamName" in option ? option.TeamName : option.ProjectName,
+              })}
+            >
+              {"TeamName" in option ? option.TeamName : option.ProjectName}
+            </option>
+          );
+        })}
       </select>
       {error && <p className="Input-Error">{error}</p>}
     </div>

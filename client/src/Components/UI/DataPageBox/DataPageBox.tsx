@@ -1,8 +1,8 @@
 import "./DataPageBox.css";
-import type { Project, Team, Task } from "../../../Types/UI.Types";
+import type { DataPageBoxProps } from "../../../Types/UI.Types";
 import { Link } from "react-router-dom";
 
-function DataPageBox({ data }: { data: Project | Team | Task }) {
+function DataPageBox({ data }: DataPageBoxProps) {
   const title =
     "TeamName" in data
       ? data.TeamName
@@ -18,7 +18,7 @@ function DataPageBox({ data }: { data: Project | Team | Task }) {
         : `/tasks/${data._id}`;
 
   return (
-    <Link to={To} className="DataPageBox">
+    <Link to={To} state={data} className="DataPageBox">
       <h3>{title}</h3>
 
       <p>{data.Description}</p>
