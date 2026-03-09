@@ -17,16 +17,34 @@ const ProjectSchema = new Schema({
     required: true,
   },
 
-  Team: {
-    type: Schema.Types.ObjectId,
-    ref: "Team",
-    required: true,
-  },
-
+  Team: [
+    {
+      _id: {
+        type: Schema.Types.ObjectId,
+        ref: "Team",
+        required: true,
+      },
+      Name: {
+        type: String,
+        required: true,
+      },
+    },
+  ],
   Members: [
     {
-      type: Schema.Types.ObjectId,
-      ref: "User",
+      _id: {
+        type: Schema.Types.ObjectId,
+        ref: "User",
+        required: true,
+      },
+      Name: {
+        type: String,
+        required: true,
+      },
+      Role: {
+        type: String,
+        required: true,
+      },
     },
   ],
 });

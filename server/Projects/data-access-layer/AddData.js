@@ -2,11 +2,17 @@ const Project = require("./ProjectSchema");
 
 async function NewProject(Title, Description, DueDate, Team) {
   try {
-    const add = Project.create({
+    const add = await Project.create({
       ProjectName: Title,
       Description,
       DueDate,
-      Team,
+      Team: [
+        {
+          _id: Team.id,
+          Name: Team.name,
+        },
+      ],
+      Members: [],
     });
 
     return add;

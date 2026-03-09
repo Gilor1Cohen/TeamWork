@@ -13,6 +13,7 @@ connectMongo();
 
 app.use("/addProject", require("./controllers-layer/AddProject"));
 app.use("/projectsByUser", require("./controllers-layer/ProjectsByUser"));
+app.use("/projectCompleted", require("./controllers-layer/projectCompleted"));
 
 app
   .listen(3002, () => {

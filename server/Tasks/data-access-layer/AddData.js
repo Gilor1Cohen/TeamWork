@@ -2,11 +2,17 @@ const Task = require("./TaskSchema");
 
 async function NewTask(Title, Description, DueDate, Project) {
   try {
-    const newTask = Task.create({
+    const newTask = await Task.create({
       TaskTitle: Title,
       Description,
       DueDate,
-      Project,
+      Project: [
+        {
+          _id: Project.id,
+          Name: Project.name,
+        },
+      ],
+      Members: [],
     });
 
     return newTask;

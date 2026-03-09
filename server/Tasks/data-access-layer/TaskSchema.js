@@ -17,16 +17,35 @@ const TaskSchema = new Schema({
     required: true,
   },
 
-  Project: {
-    type: Schema.Types.ObjectId,
-    ref: "Project",
-    required: true,
-  },
+  Project: [
+    {
+      _id: {
+        type: Schema.Types.ObjectId,
+        ref: "Project",
+        required: true,
+      },
+      Name: {
+        type: String,
+        required: true,
+      },
+    },
+  ],
 
   Members: [
     {
-      type: Schema.Types.ObjectId,
-      ref: "User",
+      _id: {
+        type: Schema.Types.ObjectId,
+        ref: "User",
+        required: true,
+      },
+      Name: {
+        type: String,
+        required: true,
+      },
+      Role: {
+        type: String,
+        required: true,
+      },
     },
   ],
 });

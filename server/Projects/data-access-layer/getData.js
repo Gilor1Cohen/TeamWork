@@ -4,8 +4,8 @@ const mongoose = require("mongoose");
 async function projectsByUser(UserId) {
   try {
     const projects = await Project.find({
-      Members: new mongoose.Types.ObjectId(UserId),
-    });
+      "Members._id": new mongoose.Types.ObjectId(UserId),
+    }).lean();
 
     return projects;
   } catch (error) {

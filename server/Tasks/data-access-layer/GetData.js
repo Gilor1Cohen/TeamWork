@@ -4,8 +4,8 @@ const Task = require("../data-access-layer/TaskSchema");
 async function tasksByUser(UserId) {
   try {
     const tasks = await Task.find({
-      Members: new mongoose.Types.ObjectId(UserId),
-    });
+      "Members._id": new mongoose.Types.ObjectId(UserId),
+    }).lean();
 
     return tasks;
   } catch (error) {

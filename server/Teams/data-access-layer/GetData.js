@@ -4,7 +4,7 @@ const mongoose = require("mongoose");
 async function teamsByUser(UserId) {
   try {
     const teams = await Team.find({
-      Members: new mongoose.Types.ObjectId(UserId),
+      "Members._id": new mongoose.Types.ObjectId(UserId),
     });
 
     return teams;

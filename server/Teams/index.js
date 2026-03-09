@@ -13,6 +13,9 @@ connectMongo();
 
 app.use("/addTeam", require("./controllers-layer/AddTeam"));
 app.use("/teamsByUser", require("./controllers-layer/TeamsByUser"));
+app.use("/addTeamMember", require("./controllers-layer/addTeamMember"));
+app.use("/removeTeamMember", require("./controllers-layer/removeTeamMember"));
+app.use("/leaveTeam", require("./controllers-layer/leaveTeam"));
 
 app
   .listen(3001, () => {

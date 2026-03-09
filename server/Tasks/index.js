@@ -13,6 +13,7 @@ connectMongo();
 
 app.use("/addTask", require("./controllers-layer/addTask"));
 app.use("/tasksByUser", require("./controllers-layer/TasksByUser"));
+app.use("/taskCompleted", require("./controllers-layer/taskCompleted"));
 
 app
   .listen(3003, () => {
