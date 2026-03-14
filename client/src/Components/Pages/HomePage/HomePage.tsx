@@ -30,9 +30,12 @@ function HomePage() {
   return (
     <section id="HomePage">
       <div id="homePageSummary">
-        <h1 id="HomePage-H">
-          Good {TimeOfDay || "day"}, {auth?.FirstName} {auth?.LastName}
-        </h1>
+        <div id="homePageSummary-header">
+          <h1 id="HomePage-H">
+            Good {TimeOfDay || "day"}, {auth?.FirstName} {auth?.LastName}
+          </h1>
+          <p id="id">({auth?.id})</p>
+        </div>
         <p id="homePageTasksDueText">
           You have {data.DueToday} tasks due today.
         </p>
