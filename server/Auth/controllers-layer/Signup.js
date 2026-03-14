@@ -24,6 +24,8 @@ router.post("/", async (req, res) => {
 
     return res.status(200).json({ user: data.user });
   } catch (error) {
+    console.log(error);
+
     return res.status(500).json({ message: "An error occurred during signup" });
   }
 });

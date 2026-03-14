@@ -14,7 +14,7 @@ router.post("/", createMiddleware, async (req, res) => {
       return res.status(400).json({ error: "All fields are required" });
     }
 
-    const leave = await removeTeamMember(UserId, TeamId);
+    const leave = await removeTeamMember(UserId, TeamId, "TeamMemberLeft");
 
     res.status(200).json({ message: "Team added successfully" });
   } catch (error) {

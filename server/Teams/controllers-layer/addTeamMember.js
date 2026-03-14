@@ -20,6 +20,8 @@ router.post("/", createMiddleware, async (req, res) => {
       Role,
     });
   } catch (error) {
+    console.log(error);
+
     res.status(500).json({ error: error.message });
   }
 });

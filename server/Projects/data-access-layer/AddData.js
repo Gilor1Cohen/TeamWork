@@ -1,4 +1,5 @@
 const Project = require("./ProjectSchema");
+const mongoose = require("mongoose");
 
 async function NewProject(Title, Description, DueDate, Team) {
   try {
@@ -21,4 +22,25 @@ async function NewProject(Title, Description, DueDate, Team) {
   }
 }
 
-module.exports = { NewProject };
+async function addMember(Name, Role, UserId, TeamId) {
+  try {
+    const add = await Project.updateMany(
+      { "Team._id": new mongoose.Types.ObjectId(TeamId) },
+      {
+        $addToSet: {
+          Members: {
+            _id: UserId,
+            Name: Name,
+            Role: Role,
+          },
+        },
+      },
+    );
+
+    return add.modifiedCount;
+  } catch (error) {
+    throw error;
+  }
+}
+
+module.exports = { NewProject, addMember };
