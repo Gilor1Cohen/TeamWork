@@ -1,4 +1,9 @@
-const { TeamMemberAdded, TeamMemberRemoved } = require("./handleEvent");
+const {
+  TeamMemberAdded,
+  TeamMemberRemoved,
+  ProjectCompleted,
+  newTask,
+} = require("./handleEvent");
 
 async function startListener(js, streamName, connectionName) {
   const consumer = await js.consumers.get(streamName, connectionName);
@@ -18,6 +23,14 @@ async function startListener(js, streamName, connectionName) {
 
       case "project.TeamMemberRemoved":
         await TeamMemberRemoved(data);
+        break;
+
+      case "project.ProjectCompleted":
+        await ProjectCompleted(data);
+        break;
+
+      case "project.newTask":
+        await newTask(data);
         break;
 
       default:

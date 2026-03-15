@@ -1,3 +1,5 @@
+const { newProjectCreated } = require("./handleEvent");
+
 async function startListener(js, streamName, connectionName) {
   const consumer = await js.consumers.get(streamName, connectionName);
 
@@ -10,7 +12,8 @@ async function startListener(js, streamName, connectionName) {
     const data = JSON.parse(msg.data);
 
     switch (subject) {
-      case "":
+      case "project.newProjectCreated":
+        await newProjectCreated(data);
         break;
 
       case "":

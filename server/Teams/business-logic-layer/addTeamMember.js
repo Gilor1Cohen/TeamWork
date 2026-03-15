@@ -13,6 +13,7 @@ async function addTeamMember(Name, Role, UserId, TeamId) {
       UserRole: Role,
       UserId,
       TeamId,
+      Members: addMemberData.Members,
     };
     await publishEvent(js, subject, eventData);
 

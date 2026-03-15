@@ -43,4 +43,25 @@ async function addMember(Name, Role, UserId, ProjectId) {
   }
 }
 
-module.exports = { NewTask, addMember };
+async function addMemberToNewTask(Name, Role, UserId, TaskId) {
+  try {
+    const add = await Task.findByIdAndUpdate(
+      new mongoose.Types.ObjectId(TaskId),
+      {
+        $addToSet: {
+          Members: {
+            _id: new mongoose.Types.ObjectId(UserId),
+            Name: Name,
+            Role: Role,
+          },
+        },
+      },
+    );
+
+    return add;
+  } catch (error) {
+    throw error;
+  }
+}
+
+module.exports = { NewTask, addMember, addMemberToNewTask };

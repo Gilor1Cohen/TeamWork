@@ -32,4 +32,18 @@ async function removeMember(UserId, ProjectId) {
   }
 }
 
-module.exports = { deleteTask, removeMember };
+async function removeProjectTask(data) {
+  try {
+    const projectId = new mongoose.Types.ObjectId(data.ProjectId);
+
+    const result = await Task.deleteMany({
+      "Project._id": projectId,
+    });
+
+    return result;
+  } catch (error) {
+    throw error;
+  }
+}
+
+module.exports = { deleteTask, removeMember, removeProjectTask };

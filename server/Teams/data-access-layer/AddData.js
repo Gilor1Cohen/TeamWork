@@ -1,11 +1,18 @@
 const Team = require("./TeamSchema");
+const mongoose = require("mongoose");
 
-async function NewTeam(Title, Description) {
+async function NewTeam(Title, Description, UserId, UserName) {
   try {
     const add = await Team.create({
       TeamName: Title,
       Description,
-      Members: [],
+      Members: [
+        {
+          _id: new mongoose.Types.ObjectId(UserId),
+          Name: UserName,
+          Role: "manager",
+        },
+      ],
     });
 
     return add;

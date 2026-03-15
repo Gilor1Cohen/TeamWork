@@ -1,8 +1,14 @@
 const {
+  UserCreated,
+  newTeamCreated,
   TeamMemberAdded,
   TeamMemberRemoved,
   newProjectData,
-  newTaskCreated,
+  ProjectCompleted,
+  newTask,
+  TaskCompleted,
+  addProjects,
+  addTasks,
 } = require("./handleEvent");
 
 async function startListener(js, streamName, connectionName) {
@@ -17,6 +23,14 @@ async function startListener(js, streamName, connectionName) {
     const data = JSON.parse(msg.data);
 
     switch (subject) {
+      case "auth.UserCreated":
+        await UserCreated(data);
+        break;
+
+      case "team.newTeamCreated":
+        await newTeamCreated(data);
+        break;
+
       case "team.TeamMemberAdded":
         await TeamMemberAdded(data);
         break;
@@ -25,7 +39,7 @@ async function startListener(js, streamName, connectionName) {
         await TeamMemberRemoved(data);
         break;
 
-      case "team.TeamMemberLeft":
+      case "team.UserLeft":
         await TeamMemberRemoved(data);
         break;
 
@@ -33,8 +47,32 @@ async function startListener(js, streamName, connectionName) {
         await newProjectData(data);
         break;
 
-      case "task.newTaskCreated":
-        await newTaskCreated(data);
+      case "project.ProjectCompleted":
+        await ProjectCompleted(data);
+        break;
+
+      case "project.newTask":
+        await newTask(data);
+        break;
+
+      case "task.TaskCompleted":
+        await TaskCompleted(data);
+        break;
+
+      case "project.TeamMemberAdded":
+        await addProjects(data);
+        break;
+
+      case "task.TeamMemberAdded":
+        await addTasks(data);
+        break;
+
+      case "project.TeamMemberRemoved":
+        await addProjects(data);
+        break;
+
+      case "task.TeamMemberRemoved":
+        await addTasks(data);
         break;
 
       default:

@@ -8,7 +8,7 @@ async function removeTeamMember(UserId, TeamId, subjectString) {
 
     const js = getJs();
     const subject = `team.${subjectString}`;
-    const eventData = { UserId, TeamId };
+    const eventData = { UserId, TeamId, Members: data.Members };
     await publishEvent(js, subject, eventData);
 
     return data;

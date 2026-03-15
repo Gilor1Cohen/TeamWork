@@ -1,4 +1,6 @@
 const signJwt = require("../../common/signJwt");
+const { getJs } = require("../NATS/connect");
+const { publishEvent } = require("../NATS/publishEvent");
 const { createNewUser } = require("../data-access-layer/AddData");
 const { isEmailExists } = require("../data-access-layer/GetData");
 const bcrypt = require("bcrypt");
@@ -18,6 +20,13 @@ async function Signup(FirstName, LastName, Email, Password) {
       Email,
       HashedPassword,
     );
+
+    const js = getJs();
+    const subject = "auth.UserCreated";
+    const eventData = {
+      UserId: newUser.id,
+    };
+    await publishEvent(js, subject, eventData);
 
     const token = await signJwt(FirstName, LastName, Email, newUser.id);
     return {

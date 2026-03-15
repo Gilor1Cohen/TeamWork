@@ -13,4 +13,16 @@ async function tasksByUser(UserId) {
   }
 }
 
-module.exports = { tasksByUser };
+async function tasksByProject(ProjectId) {
+  try {
+    const count = await Task.countDocuments({
+      "Project._id": new mongoose.Types.ObjectId(ProjectId),
+    });
+
+    return count;
+  } catch (error) {
+    throw error;
+  }
+}
+
+module.exports = { tasksByUser, tasksByProject };

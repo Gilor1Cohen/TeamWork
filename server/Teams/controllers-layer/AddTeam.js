@@ -12,7 +12,10 @@ router.post("/", createMiddleware, async (req, res) => {
       return res.status(400).json({ error: "All fields are required" });
     }
 
-    const add = await addTeam(Title, Description);
+    const UserId = req.user.decoded.ID;
+    const UserName = ` ${req.user.decoded.FirstName} ${req.user.decoded.LastName}`;
+
+    const add = await addTeam(Title, Description, UserId, UserName);
 
     res.status(201).json({ message: "Team added successfully" });
   } catch (error) {

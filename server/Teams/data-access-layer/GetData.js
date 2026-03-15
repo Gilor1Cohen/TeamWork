@@ -13,4 +13,17 @@ async function teamsByUser(UserId) {
   }
 }
 
-module.exports = { teamsByUser };
+async function teamsMembers(TeamId) {
+  try {
+    const Members = await Team.findById(TeamId, {
+      Members: 1,
+      _id: 1,
+    });
+
+    return Members;
+  } catch (error) {
+    throw new Error("Failed to fetch members");
+  }
+}
+
+module.exports = { teamsByUser, teamsMembers };
